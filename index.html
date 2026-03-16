@@ -8,7 +8,9 @@
 
 <title>IGNARA COIN</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
 
@@ -20,10 +22,12 @@ box-sizing:border-box;
 
 body{
 font-family:'Orbitron',sans-serif;
-background:#050505;
+background:#070707;
 color:white;
 overflow-x:hidden;
 }
+
+/* PARTICLE BACKGROUND */
 
 #bg{
 position:fixed;
@@ -34,27 +38,41 @@ height:100%;
 z-index:-1;
 }
 
+/* HEADER */
+
 header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:25px 50px;
-background:#000;
-border-bottom:1px solid #222;
+padding:25px 60px;
+background:rgba(0,0,0,0.8);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(255,120,0,0.3);
 }
 
 .logo{
-color:#00ff88;
-font-size:24px;
-font-weight:bold;
+font-size:26px;
+font-weight:800;
+background:linear-gradient(90deg,#ffd27f,#ff6a00);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+text-shadow:0 0 20px #ff6a00;
 }
 
 nav a{
-margin-left:25px;
+margin-left:30px;
 text-decoration:none;
-color:white;
+color:#ccc;
 font-size:14px;
+transition:0.3s;
 }
+
+nav a:hover{
+color:#ff8c00;
+text-shadow:0 0 10px #ff6a00;
+}
+
+/* HERO */
 
 .hero{
 height:90vh;
@@ -66,93 +84,136 @@ text-align:center;
 }
 
 .hero h1{
-font-size:70px;
-color:#00ff88;
+font-size:90px;
+background:linear-gradient(180deg,#ffd27f,#ff6a00);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+text-shadow:0 0 25px #ff6a00;
 }
 
 .hero p{
 font-size:22px;
 margin-top:10px;
-color:#aaa;
-}
-
-.buy-button{
-margin-top:35px;
-padding:18px 40px;
-font-size:18px;
-background:#00ff88;
-border:none;
-border-radius:12px;
-cursor:pointer;
-transition:0.3s;
-}
-
-.buy-button:hover{
-box-shadow:0 0 20px #00ff88;
-transform:scale(1.05);
+color:#bbb;
 }
 
 .mascot{
-width:220px;
-margin-top:30px;
+width:260px;
+margin-top:40px;
 animation:float 4s ease-in-out infinite;
+filter:drop-shadow(0 0 25px #ff6a00);
 }
 
 @keyframes float{
 0%{transform:translateY(0)}
-50%{transform:translateY(-20px)}
+50%{transform:translateY(-25px)}
 100%{transform:translateY(0)}
 }
 
+/* BUTTON */
+
+.buy-button{
+margin-top:40px;
+padding:18px 45px;
+font-size:18px;
+background:linear-gradient(90deg,#ff8c00,#ff3d00);
+border:none;
+border-radius:14px;
+cursor:pointer;
+color:white;
+font-weight:bold;
+transition:0.3s;
+box-shadow:0 0 25px rgba(255,100,0,0.7);
+}
+
+.buy-button:hover{
+transform:scale(1.1);
+box-shadow:0 0 45px #ff6a00;
+}
+
+/* HOLDERS */
+
+.holders{
+margin-top:25px;
+font-size:22px;
+color:#ff8c00;
+text-shadow:0 0 10px #ff6a00;
+}
+
+/* SECTIONS */
+
 .section{
-padding:100px 20px;
+padding:120px 20px;
 text-align:center;
 max-width:1100px;
 margin:auto;
 }
 
 .section h2{
-font-size:40px;
+font-size:46px;
 margin-bottom:20px;
-color:#00ff88;
+background:linear-gradient(90deg,#ffb347,#ff6a00);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
+
+.section p{
+color:#aaa;
+font-size:18px;
+}
+
+/* TOKENOMICS CARDS */
 
 .tokenomics{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
 margin-top:40px;
 }
 
 .card{
-background:#0e0e0e;
+background:rgba(20,20,20,0.9);
 padding:35px;
-border-radius:10px;
-border:1px solid #222;
+border-radius:14px;
+border:1px solid rgba(255,120,0,0.3);
+box-shadow:0 0 20px rgba(255,120,0,0.15);
+transition:0.3s;
 }
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 35px rgba(255,120,0,0.5);
+}
+
+/* COMMUNITY */
 
 .community a{
 display:inline-block;
-margin:10px;
-padding:12px 25px;
-border-radius:10px;
-background:#111;
+margin:12px;
+padding:14px 32px;
+border-radius:12px;
+background:linear-gradient(90deg,#ff8c00,#ff3d00);
 color:white;
 text-decoration:none;
+font-weight:bold;
+box-shadow:0 0 20px rgba(255,100,0,0.4);
+transition:0.3s;
 }
 
-.holders{
-margin-top:25px;
-font-size:20px;
-color:#00ff88;
+.community a:hover{
+transform:scale(1.08);
+box-shadow:0 0 35px #ff6a00;
 }
+
+/* FOOTER */
 
 footer{
-margin-top:80px;
+margin-top:100px;
 padding:40px;
 text-align:center;
 background:#000;
-color:#777;
+color:#666;
+border-top:1px solid rgba(255,120,0,0.3);
 }
 
 </style>
@@ -178,12 +239,12 @@ color:#777;
 
 <section class="hero">
 
-<h1>IGNARA COIN</h1>
+<h1>IGNARA</h1>
 
-<p>From Zero to Millions</p>
+<p>From Zero To Millions</p>
 
 <img class="mascot" src="ignara-mascot2.png">
-  
+
 <a href="https://app.uniswap.org" target="_blank">
 <button class="buy-button">BUY IGNARA</button>
 </a>
@@ -197,8 +258,13 @@ color:#777;
 <h2>What is IGNARA</h2>
 
 <p>
+
 IGNARA is a community driven memecoin built for the new era of decentralized culture.
-No venture capital. No insiders. Just memes, community and exponential growth.
+
+No venture capital.  
+No insiders.  
+Only memes, community and exponential growth.
+
 </p>
 
 </section>
@@ -209,11 +275,35 @@ No venture capital. No insiders. Just memes, community and exponential growth.
 
 <canvas id="tokenChart" width="300"></canvas>
 
+<div class="tokenomics">
+
+<div class="card">
+<h3>50%</h3>
+<p>Liquidity</p>
+</div>
+
+<div class="card">
+<h3>30%</h3>
+<p>Community</p>
+</div>
+
+<div class="card">
+<h3>10%</h3>
+<p>Marketing</p>
+</div>
+
+<div class="card">
+<h3>10%</h3>
+<p>Development</p>
+</div>
+
+</div>
+
 </section>
 
 <section class="section">
 
-<h2>Chart</h2>
+<h2>Live Chart</h2>
 
 <iframe
 src="https://dexscreener.com"
@@ -228,10 +318,10 @@ frameborder="0">
 
 <h2>How to Buy</h2>
 
-<p>1. Install a wallet</p>
-<p>2. Buy ETH</p>
-<p>3. Connect wallet</p>
-<p>4. Swap ETH for IGNARA</p>
+<p>1 Install MetaMask</p>
+<p>2 Buy ETH</p>
+<p>3 Connect Wallet</p>
+<p>4 Swap ETH for IGNARA</p>
 
 </section>
 
@@ -254,8 +344,6 @@ frameborder="0">
 
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <script>
 
 /* TOKENOMICS CHART */
@@ -274,10 +362,10 @@ labels:[
 datasets:[{
 data:[50,30,10,10],
 backgroundColor:[
-'#00ff88',
-'#00ccff',
+'#ff8c00',
+'#ff3d00',
 '#ffaa00',
-'#ff0066'
+'#ff6a00'
 ]
 }]
 }
@@ -297,7 +385,7 @@ document.getElementById("holders").innerText="Holders: "+holders
 randomHolders()
 
 
-/* BLOCKCHAIN BACKGROUND */
+/* PARTICLE BACKGROUND */
 
 const canvas = document.getElementById("bg")
 const ctx = canvas.getContext("2d")
@@ -305,29 +393,33 @@ const ctx = canvas.getContext("2d")
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 
-let nodes=[]
+let particles=[]
 
-for(let i=0;i<80;i++){
-nodes.push({
+for(let i=0;i<120;i++){
+
+particles.push({
 x:Math.random()*canvas.width,
 y:Math.random()*canvas.height,
-vx:(Math.random()-0.5)*0.5,
-vy:(Math.random()-0.5)*0.5
+vx:(Math.random()-0.5)*0.6,
+vy:(Math.random()-0.5)*0.6
 })
+
 }
 
 function animate(){
 
 ctx.clearRect(0,0,canvas.width,canvas.height)
 
-nodes.forEach(n=>{
-n.x+=n.vx
-n.y+=n.vy
+particles.forEach(p=>{
+
+p.x+=p.vx
+p.y+=p.vy
 
 ctx.beginPath()
-ctx.arc(n.x,n.y,2,0,Math.PI*2)
-ctx.fillStyle="#00ff88"
+ctx.arc(p.x,p.y,2,0,Math.PI*2)
+ctx.fillStyle="#ff6a00"
 ctx.fill()
+
 })
 
 requestAnimationFrame(animate)
