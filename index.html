@@ -209,6 +209,36 @@ color:#777;
 Holders: Loading...
 </div>
 
+<canvas id="tokenChart"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const ctx2 = document.getElementById('tokenChart');
+
+new Chart(ctx2, {
+type: 'doughnut',
+data: {
+labels: [
+'Liquidity',
+'Community',
+'Marketing',
+'Development'
+],
+datasets: [{
+data: [50,30,10,10],
+backgroundColor:[
+'#00ff88',
+'#00ccff',
+'#ffaa00',
+'#ff0066'
+]
+}]
+}
+});
+
+</script>
+
 </section>
 
 <section id="about" class="section">
