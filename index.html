@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>IGNARA COIN</title>
 
-<img class="mascot" src="ignara-mascot.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IGNARA COIN</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 
@@ -17,50 +17,21 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 }
-<script>
 
-const canvas = document.getElementById("bg")
-const ctx = canvas.getContext("2d")
-
-canvas.width = window.innerWidth
-canvas.height = window.innerHeight
-
-let nodes=[]
-
-for(let i=0;i<80;i++){
-nodes.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-vx:(Math.random()-0.5)*0.5,
-vy:(Math.random()-0.5)*0.5
-})
-}
-
-function animate(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height)
-
-nodes.forEach(n=>{
-n.x+=n.vx
-n.y+=n.vy
-
-ctx.beginPath()
-ctx.arc(n.x,n.y,2,0,Math.PI*2)
-ctx.fillStyle="#00ff88"
-ctx.fill()
-})
-
-requestAnimationFrame(animate)
-}
-
-animate()
-
-</script>
 body{
-<canvas id="bg"></canvas>
 font-family:'Orbitron',sans-serif;
 background:#050505;
 color:white;
+overflow-x:hidden;
+}
+
+#bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
 }
 
 header{
@@ -92,11 +63,10 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-background: radial-gradient(circle at center,#0a0a0a,#000);
 }
 
 .hero h1{
-font-size:80px;
+font-size:70px;
 color:#00ff88;
 }
 
@@ -114,6 +84,24 @@ background:#00ff88;
 border:none;
 border-radius:12px;
 cursor:pointer;
+transition:0.3s;
+}
+
+.buy-button:hover{
+box-shadow:0 0 20px #00ff88;
+transform:scale(1.05);
+}
+
+.mascot{
+width:220px;
+margin-top:30px;
+animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-20px)}
+100%{transform:translateY(0)}
 }
 
 .section{
@@ -143,15 +131,6 @@ border-radius:10px;
 border:1px solid #222;
 }
 
-.mascot{
-margin-top:40px;
-width:200px;
-}
-
-.chart{
-margin-top:50px;
-}
-
 .community a{
 display:inline-block;
 margin:10px;
@@ -163,7 +142,7 @@ text-decoration:none;
 }
 
 .holders{
-margin-top:30px;
+margin-top:25px;
 font-size:20px;
 color:#00ff88;
 }
@@ -181,6 +160,8 @@ color:#777;
 </head>
 
 <body>
+
+<canvas id="bg"></canvas>
 
 <header>
 
@@ -201,43 +182,13 @@ color:#777;
 
 <p>From Zero to Millions</p>
 
+<img class="mascot" src="https://i.imgur.com/4AiXzf8.png">
+
 <a href="https://app.uniswap.org" target="_blank">
 <button class="buy-button">BUY IGNARA</button>
 </a>
 
-<div class="holders" id="holders">
-Holders: Loading...
-</div>
-
-<canvas id="tokenChart"></canvas>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script>
-
-const ctx2 = document.getElementById('tokenChart');
-
-new Chart(ctx2, {
-type: 'doughnut',
-data: {
-labels: [
-'Liquidity',
-'Community',
-'Marketing',
-'Development'
-],
-datasets: [{
-data: [50,30,10,10],
-backgroundColor:[
-'#00ff88',
-'#00ccff',
-'#ffaa00',
-'#ff0066'
-]
-}]
-}
-});
-
-</script>
+<div class="holders" id="holders">Holders: Loading...</div>
 
 </section>
 
@@ -250,46 +201,17 @@ IGNARA is a community driven memecoin built for the new era of decentralized cul
 No venture capital. No insiders. Just memes, community and exponential growth.
 </p>
 
-<img class="mascot" src="https://i.imgur.com/4AiXzf8.png">
-
 </section>
 
 <section id="tokenomics" class="section">
 
 <h2>Tokenomics</h2>
 
-<div class="tokenomics">
-
-<div class="card">
-<h3>Total Supply</h3>
-<p>1,000,000,000</p>
-</div>
-
-<div class="card">
-<h3>Liquidity</h3>
-<p>50%</p>
-</div>
-
-<div class="card">
-<h3>Community</h3>
-<p>30%</p>
-</div>
-
-<div class="card">
-<h3>Marketing</h3>
-<p>10%</p>
-</div>
-
-<div class="card">
-<h3>Development</h3>
-<p>10%</p>
-</div>
-
-</div>
+<canvas id="tokenChart" width="300"></canvas>
 
 </section>
 
-<section class="section chart">
+<section class="section">
 
 <h2>Chart</h2>
 
@@ -332,17 +254,87 @@ frameborder="0">
 
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
+
+/* TOKENOMICS CHART */
+
+const ctx2 = document.getElementById('tokenChart')
+
+new Chart(ctx2,{
+type:'doughnut',
+data:{
+labels:[
+'Liquidity',
+'Community',
+'Marketing',
+'Development'
+],
+datasets:[{
+data:[50,30,10,10],
+backgroundColor:[
+'#00ff88',
+'#00ccff',
+'#ffaa00',
+'#ff0066'
+]
+}]
+}
+})
+
+
+/* RANDOM HOLDERS */
 
 function randomHolders(){
 
-let holders = Math.floor(Math.random()*5000)+1200;
+let holders = Math.floor(Math.random()*5000)+1200
 
-document.getElementById("holders").innerText="Holders: "+holders;
+document.getElementById("holders").innerText="Holders: "+holders
 
 }
 
-randomHolders();
+randomHolders()
+
+
+/* BLOCKCHAIN BACKGROUND */
+
+const canvas = document.getElementById("bg")
+const ctx = canvas.getContext("2d")
+
+canvas.width = window.innerWidth
+canvas.height = window.innerHeight
+
+let nodes=[]
+
+for(let i=0;i<80;i++){
+nodes.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+vx:(Math.random()-0.5)*0.5,
+vy:(Math.random()-0.5)*0.5
+})
+}
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height)
+
+nodes.forEach(n=>{
+n.x+=n.vx
+n.y+=n.vy
+
+ctx.beginPath()
+ctx.arc(n.x,n.y,2,0,Math.PI*2)
+ctx.fillStyle="#00ff88"
+ctx.fill()
+})
+
+requestAnimationFrame(animate)
+
+}
+
+animate()
 
 </script>
 
