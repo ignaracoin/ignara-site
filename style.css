@@ -44,7 +44,20 @@ height:100%;
 z-index:-1;
 background:#050505;
 }
+.buy-button{
+background:#00ff88;
+border:none;
+padding:18px 40px;
+font-size:18px;
+border-radius:12px;
+cursor:pointer;
+transition:0.3s;
+}
 
+.buy-button:hover{
+box-shadow:0 0 20px #00ff88;
+transform:scale(1.05);
+}
 @keyframes float{
 0%{transform:translateY(0)}
 50%{transform:translateY(-20px)}
