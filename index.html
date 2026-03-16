@@ -1,14 +1,14 @@
-```html id="2k8b5v"
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>IGNARA COIN</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
 
@@ -29,214 +29,181 @@ color:white;
 overflow-x:hidden;
 }
 
-/* PREMIUM NAVBAR */
+/* BACKGROUND */
 
-nav{
-
+#bg3d{
 position:fixed;
 top:0;
+left:0;
 width:100%;
+height:100%;
+z-index:-1;
+}
+
+/* HEADER */
+
+header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 60px;
-
-background:rgba(0,0,0,0.65);
-backdrop-filter:blur(12px);
-
+padding:25px 60px;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
 border-bottom:1px solid rgba(255,120,0,0.3);
-
-z-index:999;
-
 }
 
 .logo{
-
-font-size:26px;
-font-weight:900;
-letter-spacing:3px;
-
-background:linear-gradient(#ffb347,#ff6a00);
+font-size:30px;
+font-weight:800;
+background:linear-gradient(#ffd27f,#ff6a00);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-
-text-shadow:0 0 20px #ff6a00;
-
+text-shadow:0 0 30px #ff6a00;
 }
 
-.menu a{
-
-margin-left:30px;
-color:#bbb;
+nav a{
+margin-left:25px;
+color:#ccc;
 text-decoration:none;
 font-size:15px;
-
-transition:.3s;
-
 }
 
-.menu a:hover{
-
+nav a:hover{
 color:#ff8c00;
-
 }
 
 /* HERO */
 
 .hero{
-
 height:100vh;
-
 display:flex;
 flex-direction:column;
-
 align-items:center;
 justify-content:center;
-
 text-align:center;
-
 }
 
-/* TITLE */
-
 .title{
-
-font-size:120px;
-
+font-size:110px;
+letter-spacing:8px;
 background:linear-gradient(#ffd27f,#ff6a00);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-
 text-shadow:0 0 50px #ff6a00;
-
 }
 
 .subtitle{
-
 margin-top:10px;
 font-size:24px;
 color:#aaa;
+}
 
+/* HERO CENTER */
+
+.hero-center{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:80px;
+margin-top:40px;
 }
 
 /* MASCOT */
 
 .mascot{
-
-width:520px;
-margin-top:40px;
-
-filter:drop-shadow(0 0 50px #ff6a00);
-
+width:420px;
+filter:drop-shadow(0 0 40px #ff6a00);
 }
 
-/* BUY BUTTON */
+/* COIN */
+
+#coin{
+width:200px;
+height:200px;
+}
+
+/* BUTTON */
 
 .buy{
-
 margin-top:40px;
-
-padding:26px 70px;
-
-font-size:26px;
-
+padding:20px 60px;
+font-size:22px;
 border:none;
-
-border-radius:16px;
-
+border-radius:14px;
 background:linear-gradient(90deg,#ff8c00,#ff3d00);
-
 color:white;
-
 cursor:pointer;
-
-box-shadow:0 0 45px #ff6a00;
-
-transition:.3s;
-
+box-shadow:0 0 35px #ff6a00;
+transition:0.3s;
 }
 
 .buy:hover{
-
 transform:scale(1.08);
-box-shadow:0 0 80px #ff6a00;
-
+box-shadow:0 0 60px #ff6a00;
 }
 
 /* STATS */
 
 .stats{
-
 margin-top:30px;
-
 display:flex;
-gap:40px;
-
+gap:30px;
 font-size:20px;
-
 color:#ff8c00;
-
 }
 
-/* COIN */
-
-#coinCanvas{
-
-width:260px;
-height:260px;
-margin-top:30px;
-
-}
-
-/* FIRE BACKGROUND */
-
-#fireCanvas{
-
-position:fixed;
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-z-index:-1;
-
-}
-
-/* SECTION */
+/* SECTIONS */
 
 .section{
-
 padding:120px 20px;
 max-width:1100px;
 margin:auto;
 text-align:center;
-
 }
 
 .section h2{
-
-font-size:50px;
-
+font-size:52px;
+margin-bottom:40px;
 background:linear-gradient(#ffb347,#ff6a00);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-
-margin-bottom:40px;
-
 }
 
-footer{
+/* CHART */
 
+.chart-box{
+max-width:1100px;
+margin:auto;
+border-radius:14px;
+overflow:hidden;
+box-shadow:0 0 40px rgba(255,120,0,0.3);
+}
+
+/* COMMUNITY */
+
+.community a{
+display:inline-block;
+padding:18px 40px;
+font-size:20px;
+background:linear-gradient(90deg,#ff8c00,#ff3d00);
+color:white;
+text-decoration:none;
+border-radius:12px;
+box-shadow:0 0 30px #ff6a00;
+}
+
+.community a:hover{
+transform:scale(1.05);
+}
+
+/* FOOTER */
+
+footer{
 margin-top:120px;
 padding:40px;
-
-color:#777;
-
-border-top:1px solid rgba(255,120,0,0.2);
-
 text-align:center;
-
+color:#777;
+border-top:1px solid rgba(255,120,0,0.2);
 }
 
 </style>
@@ -245,41 +212,39 @@ text-align:center;
 
 <body>
 
-<canvas id="fireCanvas"></canvas>
+<canvas id="bg3d"></canvas>
 
-<nav>
+<header>
 
 <div class="logo">IGNARA</div>
 
-<div class="menu">
-
+<nav>
 <a href="#chart">Chart</a>
 <a href="#community">Community</a>
-
-</div>
-
 </nav>
+
+</header>
 
 <section class="hero">
 
 <h1 class="title">IGNARA</h1>
-
 <p class="subtitle">From Zero To Millions</p>
+
+<div class="hero-center">
 
 <img class="mascot" src="ignara-mascot2.png">
 
-<div id="coinCanvas"></div>
+<div id="coin"></div>
 
-<button class="buy">
-BUY IGNARA
-</button>
+</div>
+
+<a href="https://pancakeswap.finance" target="_blank">
+<button class="buy">BUY ON BNB</button>
+</a>
 
 <div class="stats">
 
 <div id="price">Price: loading...</div>
-
-<div id="holders">Holders: loading...</div>
-
 <div id="marketcap">Marketcap: loading...</div>
 
 </div>
@@ -290,12 +255,16 @@ BUY IGNARA
 
 <h2>Live Chart</h2>
 
+<div class="chart-box">
+
 <iframe
 src="https://dexscreener.com/bsc/PAIR_ADDRESS"
 width="100%"
 height="650"
-style="border:none;border-radius:12px;">
+style="border:none;">
 </iframe>
+
+</div>
 
 </section>
 
@@ -303,141 +272,137 @@ style="border:none;border-radius:12px;">
 
 <h2>Community</h2>
 
+<div class="community">
+
 <a href="https://x.com/IgnaraCoin" target="_blank">
 Follow on Twitter
 </a>
+
+</div>
 
 </section>
 
 <footer>
 
-IGNARA COIN © 2026
+© 2026 IGNARA Coin
 
 </footer>
 
 <script>
 
-/* GPU FIRE */
+/* BACKGROUND STARS */
 
-const fire = document.getElementById("fireCanvas")
-
-const ctx = fire.getContext("2d")
-
-fire.width = window.innerWidth
-fire.height = window.innerHeight
-
-let particles=[]
-
-for(let i=0;i<150;i++){
-
-particles.push({
-
-x:Math.random()*fire.width,
-
-y:Math.random()*fire.height,
-
-size:Math.random()*3+1,
-
-speed:Math.random()*2
-
-})
-
-}
-
-function fireAnim(){
-
-ctx.fillStyle="rgba(0,0,0,0.25)"
-
-ctx.fillRect(0,0,fire.width,fire.height)
-
-ctx.fillStyle="#ff6a00"
-
-particles.forEach(p=>{
-
-ctx.beginPath()
-
-ctx.arc(p.x,p.y,p.size,0,Math.PI*2)
-
-ctx.fill()
-
-p.y-=p.speed
-
-if(p.y<0){
-
-p.y=fire.height
-p.x=Math.random()*fire.width
-
-}
-
-})
-
-requestAnimationFrame(fireAnim)
-
-}
-
-fireAnim()
-
-/* COIN */
-
+const canvas = document.getElementById("bg3d")
 const scene = new THREE.Scene()
 
-const camera = new THREE.PerspectiveCamera(75,1,0.1,1000)
+const camera = new THREE.PerspectiveCamera(
+75,
+window.innerWidth/window.innerHeight,
+0.1,
+1000
+)
 
-const renderer = new THREE.WebGLRenderer({alpha:true})
+const renderer = new THREE.WebGLRenderer({canvas,alpha:true})
 
-renderer.setSize(260,260)
+renderer.setSize(window.innerWidth,window.innerHeight)
 
-document.getElementById("coinCanvas").appendChild(renderer.domElement)
+camera.position.z = 5
 
-const geometry = new THREE.CylinderGeometry(2,2,0.4,64)
+const geometry = new THREE.BufferGeometry()
 
-const material = new THREE.MeshStandardMaterial({
+const vertices=[]
 
-color:0xff8c00,
-metalness:1,
-roughness:0.2
+for(let i=0;i<2000;i++){
 
+vertices.push(
+Math.random()*200-100,
+Math.random()*200-100,
+Math.random()*200-100
+)
+
+}
+
+geometry.setAttribute(
+'position',
+new THREE.Float32BufferAttribute(vertices,3)
+)
+
+const material = new THREE.PointsMaterial({
+color:0xff6a00,
+size:0.7
 })
 
-const coin = new THREE.Mesh(geometry,material)
+const stars = new THREE.Points(geometry,material)
 
-scene.add(coin)
+scene.add(stars)
 
-const light = new THREE.PointLight(0xffffff,1)
+function animate(){
 
-light.position.set(5,5,5)
+requestAnimationFrame(animate)
 
-scene.add(light)
-
-camera.position.z=5
-
-function coinAnim(){
-
-requestAnimationFrame(coinAnim)
-
-coin.rotation.y+=0.03
+stars.rotation.y += 0.0007
 
 renderer.render(scene,camera)
 
 }
 
-coinAnim()
+animate()
 
-/* DEX DATA */
+/* COIN */
+
+const coinScene = new THREE.Scene()
+
+const coinCamera = new THREE.PerspectiveCamera(75,1,0.1,1000)
+
+const coinRenderer = new THREE.WebGLRenderer({alpha:true})
+
+coinRenderer.setSize(200,200)
+
+document.getElementById("coin").appendChild(coinRenderer.domElement)
+
+const coinGeometry = new THREE.CylinderGeometry(2,2,0.3,64)
+
+const coinMaterial = new THREE.MeshBasicMaterial({
+color:0xff8c00
+})
+
+const coin = new THREE.Mesh(coinGeometry,coinMaterial)
+
+coinScene.add(coin)
+
+coinCamera.position.z = 5
+
+function animateCoin(){
+
+requestAnimationFrame(animateCoin)
+
+coin.rotation.y += 0.03
+
+coinRenderer.render(coinScene,coinCamera)
+
+}
+
+animateCoin()
+
+/* DEXSCREENER API */
 
 async function loadData(){
 
 try{
 
-let res=await fetch("https://api.dexscreener.com/latest/dex/pairs/bsc/PAIR_ADDRESS")
+let res = await fetch(
+"https://api.dexscreener.com/latest/dex/pairs/bsc/PAIR_ADDRESS"
+)
 
-let data=await res.json()
+let data = await res.json()
 
-let pair=data.pair
+let pair = data.pair
 
-document.getElementById("price").innerText="Price: $"+pair.priceUsd
+document.getElementById("price").innerText =
+"Price: $" + pair.priceUsd
 
-document.getElementById("marketcap").innerText="Marketcap: $"+pair.fdv
+document.getElementById("marketcap").innerText =
+"Marketcap: $" + pair.fdv
 
 }catch{
 
@@ -450,28 +415,6 @@ document.getElementById("price").innerText="Price unavailable"
 loadData()
 
 setInterval(loadData,10000)
-
-/* HOLDERS BSC */
-
-async function loadHolders(){
-
-try{
-
-let res=await fetch("https://api.bscscan.com/api?module=token&action=tokenholdercount&contractaddress=CONTRACT_ADDRESS")
-
-let data=await res.json()
-
-document.getElementById("holders").innerText="Holders: "+data.result
-
-}catch{
-
-document.getElementById("holders").innerText="Holders unavailable"
-
-}
-
-}
-
-loadHolders()
 
 </script>
 
