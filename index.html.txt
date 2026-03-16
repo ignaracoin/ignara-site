@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 <title>IGNARA COIN</title>
+
+<style>
+
+body{
+background:#0e0e0e;
+color:white;
+font-family:Arial;
+text-align:center;
+padding-top:100px;
+}
+
+h1{
+font-size:60px;
+color:#00ff88;
+}
+
+button{
+background:#00ff88;
+border:none;
+padding:15px 25px;
+font-size:18px;
+border-radius:10px;
+cursor:pointer;
+}
+
+</style>
+
 </head>
 
 <body>
 
 <h1>IGNARA COIN</h1>
+
 <p>From Zero to Millions</p>
 
+<button>BUY IGNARA</button>
+
 </body>
+
 </html>
