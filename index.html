@@ -14,6 +14,8 @@
 
 <style>
 
+/* RESET */
+
 *{
 margin:0;
 padding:0;
@@ -27,7 +29,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* WEBGL BACKGROUND */
+/* BACKGROUND */
 
 #bg3d{
 position:fixed;
@@ -35,7 +37,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-z-index:-2;
+z-index:-1;
 }
 
 /* HEADER */
@@ -51,7 +53,7 @@ border-bottom:1px solid rgba(255,120,0,0.3);
 }
 
 .logo{
-font-size:28px;
+font-size:30px;
 font-weight:800;
 background:linear-gradient(#ffd27f,#ff6a00);
 -webkit-background-clip:text;
@@ -63,12 +65,11 @@ nav a{
 margin-left:25px;
 color:#ccc;
 text-decoration:none;
-transition:0.3s;
+font-size:15px;
 }
 
 nav a:hover{
 color:#ff8c00;
-text-shadow:0 0 10px #ff6a00;
 }
 
 /* HERO */
@@ -82,42 +83,51 @@ justify-content:center;
 text-align:center;
 }
 
-.hero h1{
-font-size:100px;
+.title{
+font-size:110px;
+letter-spacing:8px;
 background:linear-gradient(#ffd27f,#ff6a00);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-text-shadow:0 0 35px #ff6a00;
+text-shadow:0 0 50px #ff6a00;
 }
 
-.hero p{
+.subtitle{
 margin-top:10px;
+font-size:24px;
 color:#aaa;
-font-size:22px;
+}
+
+/* HERO CENTER */
+
+.hero-center{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:80px;
+margin-top:40px;
 }
 
 /* MASCOT */
 
 .mascot{
 width:420px;
-margin-top:40px;
 filter:drop-shadow(0 0 40px #ff6a00);
 }
 
 /* COIN */
 
 #coin{
-width:220px;
-height:220px;
-margin-top:40px;
+width:200px;
+height:200px;
 }
 
 /* BUTTON */
 
 .buy{
 margin-top:40px;
-padding:20px 50px;
-font-size:20px;
+padding:20px 60px;
+font-size:22px;
 border:none;
 border-radius:14px;
 background:linear-gradient(90deg,#ff8c00,#ff3d00);
@@ -128,18 +138,21 @@ transition:0.3s;
 }
 
 .buy:hover{
-transform:scale(1.1);
+transform:scale(1.08);
+box-shadow:0 0 60px #ff6a00;
 }
 
 /* STATS */
 
 .stats{
 margin-top:30px;
-font-size:22px;
+display:flex;
+gap:30px;
+font-size:20px;
 color:#ff8c00;
 }
 
-/* SECTION */
+/* SECTIONS */
 
 .section{
 padding:120px 20px;
@@ -149,11 +162,38 @@ text-align:center;
 }
 
 .section h2{
-font-size:48px;
-margin-bottom:20px;
+font-size:52px;
+margin-bottom:40px;
 background:linear-gradient(#ffb347,#ff6a00);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
+}
+
+/* CHART */
+
+.chart-box{
+max-width:1100px;
+margin:auto;
+border-radius:14px;
+overflow:hidden;
+box-shadow:0 0 40px rgba(255,120,0,0.3);
+}
+
+/* COMMUNITY */
+
+.community a{
+display:inline-block;
+padding:18px 40px;
+font-size:20px;
+background:linear-gradient(90deg,#ff8c00,#ff3d00);
+color:white;
+text-decoration:none;
+border-radius:12px;
+box-shadow:0 0 30px #ff6a00;
+}
+
+.community a:hover{
+transform:scale(1.05);
 }
 
 /* FOOTER */
@@ -162,8 +202,8 @@ footer{
 margin-top:120px;
 padding:40px;
 text-align:center;
-background:#000;
 color:#777;
+border-top:1px solid rgba(255,120,0,0.2);
 }
 
 </style>
@@ -179,24 +219,26 @@ color:#777;
 <div class="logo">IGNARA</div>
 
 <nav>
-
 <a href="#chart">Chart</a>
 <a href="#community">Community</a>
-
 </nav>
 
 </header>
 
 <section class="hero">
 
-<h1>IGNARA</h1>
-<p>From Zero To Millions</p>
+<h1 class="title">IGNARA</h1>
+<p class="subtitle">From Zero To Millions</p>
+
+<div class="hero-center">
 
 <img class="mascot" src="ignara-mascot2.png">
 
 <div id="coin"></div>
 
-<a href="https://pancakeswap.finance">
+</div>
+
+<a href="https://pancakeswap.finance" target="_blank">
 <button class="buy">BUY ON BNB</button>
 </a>
 
@@ -213,12 +255,16 @@ color:#777;
 
 <h2>Live Chart</h2>
 
+<div class="chart-box">
+
 <iframe
 src="https://dexscreener.com/bsc/PAIR_ADDRESS"
 width="100%"
-height="600"
-frameborder="0">
+height="650"
+style="border:none;">
 </iframe>
+
+</div>
 
 </section>
 
@@ -226,22 +272,27 @@ frameborder="0">
 
 <h2>Community</h2>
 
+<div class="community">
+
 <a href="https://x.com/IgnaraCoin" target="_blank">
-Twitter
+Follow on Twitter
 </a>
+
+</div>
 
 </section>
 
 <footer>
 
-© 2026 IGNARA COIN
+© 2026 IGNARA Coin
 
 </footer>
 
 <script>
 
-/* WEBGL METAVERSE BACKGROUND */
+/* BACKGROUND STARS */
 
+const canvas = document.getElementById("bg3d")
 const scene = new THREE.Scene()
 
 const camera = new THREE.PerspectiveCamera(
@@ -251,16 +302,14 @@ window.innerWidth/window.innerHeight,
 1000
 )
 
-const renderer = new THREE.WebGLRenderer({
-canvas:document.getElementById("bg3d"),
-alpha:true
-})
+const renderer = new THREE.WebGLRenderer({canvas,alpha:true})
 
 renderer.setSize(window.innerWidth,window.innerHeight)
 
 camera.position.z = 5
 
 const geometry = new THREE.BufferGeometry()
+
 const vertices=[]
 
 for(let i=0;i<2000;i++){
@@ -291,7 +340,7 @@ function animate(){
 
 requestAnimationFrame(animate)
 
-stars.rotation.y+=0.0007
+stars.rotation.y += 0.0007
 
 renderer.render(scene,camera)
 
@@ -299,38 +348,35 @@ renderer.render(scene,camera)
 
 animate()
 
-/* COIN SPIN */
+/* COIN */
 
 const coinScene = new THREE.Scene()
 
-const coinCamera = new THREE.PerspectiveCamera(
-75,1,0.1,1000
-)
+const coinCamera = new THREE.PerspectiveCamera(75,1,0.1,1000)
 
 const coinRenderer = new THREE.WebGLRenderer({alpha:true})
 
-coinRenderer.setSize(220,220)
+coinRenderer.setSize(200,200)
 
 document.getElementById("coin").appendChild(coinRenderer.domElement)
 
 const coinGeometry = new THREE.CylinderGeometry(2,2,0.3,64)
 
 const coinMaterial = new THREE.MeshBasicMaterial({
-color:0xff8c00,
-wireframe:false
+color:0xff8c00
 })
 
 const coin = new THREE.Mesh(coinGeometry,coinMaterial)
 
 coinScene.add(coin)
 
-coinCamera.position.z=5
+coinCamera.position.z = 5
 
 function animateCoin(){
 
 requestAnimationFrame(animateCoin)
 
-coin.rotation.y+=0.03
+coin.rotation.y += 0.03
 
 coinRenderer.render(coinScene,coinCamera)
 
