@@ -17,7 +17,45 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 }
+<script>
 
+const canvas = document.getElementById("bg")
+const ctx = canvas.getContext("2d")
+
+canvas.width = window.innerWidth
+canvas.height = window.innerHeight
+
+let nodes=[]
+
+for(let i=0;i<80;i++){
+nodes.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+vx:(Math.random()-0.5)*0.5,
+vy:(Math.random()-0.5)*0.5
+})
+}
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height)
+
+nodes.forEach(n=>{
+n.x+=n.vx
+n.y+=n.vy
+
+ctx.beginPath()
+ctx.arc(n.x,n.y,2,0,Math.PI*2)
+ctx.fillStyle="#00ff88"
+ctx.fill()
+})
+
+requestAnimationFrame(animate)
+}
+
+animate()
+
+</script>
 body{
 <canvas id="bg"></canvas>
 font-family:'Orbitron',sans-serif;
