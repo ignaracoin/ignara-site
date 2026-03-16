@@ -1,0 +1,19 @@
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Tokenomics from "./components/Tokenomics";
+import Roadmap from "./components/Roadmap";
+import Buy from "./components/Buy";
+
+function App() {
+  return (
+    <>
+      <Hero />
+      <About />
+      <Tokenomics />
+      <Roadmap />
+      <Buy />
+    </>
+  );
+}
+
+export default App;

@@ -1,0 +1,11 @@
+export default function About() {
+  return (
+    <section>
+      <h2>What is IGNARA?</h2>
+      <p>
+      IGNARA is a community driven memecoin created for the new crypto era.
+      No VC. No nonsense. Just memes and growth.
+      </p>
+    </section>
+  );
+}

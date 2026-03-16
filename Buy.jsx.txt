@@ -1,0 +1,15 @@
+export default function Buy() {
+  return (
+    <section>
+      <h2>How to Buy</h2>
+
+      <ol>
+        <li>Install MetaMask</li>
+        <li>Buy ETH</li>
+        <li>Connect to Uniswap</li>
+        <li>Swap ETH for IGNARA</li>
+      </ol>
+
+    </section>
+  );
+}

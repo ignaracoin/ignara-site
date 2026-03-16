@@ -1,0 +1,15 @@
+export default function Hero() {
+  return (
+    <section className="hero">
+      <h1>IGNARA</h1>
+      <p>From Zero to Millions</p>
+
+      <div className="buttons">
+        <a href="#">Buy on Uniswap</a>
+        <a href="#">Join Community</a>
+      </div>
+
+      <img src="/ignara-mascot.png" className="mascot"/>
+    </section>
+  );
+}

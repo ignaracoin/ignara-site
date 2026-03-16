@@ -1,0 +1,30 @@
+body{
+background:#0e0e0e;
+color:white;
+font-family:Arial;
+text-align:center;
+}
+
+.hero{
+padding:100px 20px;
+}
+
+.hero h1{
+font-size:70px;
+color:#00ff88;
+}
+
+.buttons a{
+background:#00ff88;
+color:black;
+padding:15px 25px;
+margin:10px;
+display:inline-block;
+text-decoration:none;
+border-radius:8px;
+}
+
+.mascot{
+width:250px;
+margin-top:30px;
+}

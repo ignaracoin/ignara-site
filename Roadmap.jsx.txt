@@ -1,0 +1,26 @@
+export default function Roadmap() {
+  return (
+    <section>
+      <h2>Roadmap</h2>
+
+      <p>Phase 1</p>
+      <ul>
+        <li>Launch Token</li>
+        <li>Community Growth</li>
+      </ul>
+
+      <p>Phase 2</p>
+      <ul>
+        <li>DEX Listings</li>
+        <li>Meme Marketing</li>
+      </ul>
+
+      <p>Phase 3</p>
+      <ul>
+        <li>DAO Governance</li>
+        <li>CEX Listings</li>
+      </ul>
+
+    </section>
+  );
+}
